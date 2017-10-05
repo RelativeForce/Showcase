@@ -43,3 +43,6 @@ C:\Users\Joshua\Documents\Visual Studio 2013\Projects\Finance Handler\Finance Ha
 C:\Users\Joshua\Documents\Visual Studio 2013\Projects\Finance Handler\Finance Handler\obj\Debug\Finance Handler.exe
 C:\Users\Joshua\Documents\Visual Studio 2013\Projects\Finance Handler\Finance Handler\obj\Debug\Finance Handler.pdb
 C:\Users\Joshua\Documents\Visual Studio 2013\Projects\Finance Handler\Finance Handler\obj\Debug\Finance_Handler.Windows.AboutWindow.resources
+C:\Users\Joshua\Documents\GitHub\Showcase\Finance Handler\Finance Handler\bin\Debug\Finance Handler.exe.config
+C:\Users\Joshua\Documents\GitHub\Showcase\Finance Handler\Finance Handler\obj\Debug\Finance Handler.exe
+C:\Users\Joshua\Documents\GitHub\Showcase\Finance Handler\Finance Handler\obj\Debug\Finance Handler.pdb
