@@ -1,0 +1,22 @@
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\Finance Handler.exe.config
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance Handler.csprojResolveAssemblyReference.cache
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance_Handler.AddTransactionWindow.resources
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance_Handler.Main_Form.resources
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance_Handler.Properties.Resources.resources
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance Handler.csproj.GenerateResource.Cache
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\Finance Handler.exe.manifest
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\Finance Handler.application
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\Finance Handler.exe
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\Finance Handler.pdb
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\mscorlib.dll
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\System.Data.SQLite.dll
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\System.Data.SQLite.xml
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\normidna.nlp
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\normnfc.nlp
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\normnfd.nlp
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\normnfkc.nlp
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\bin\Release\normnfkd.nlp
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance Handler.exe.manifest
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance Handler.application
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance Handler.exe
+C:\Users\Joshua\Documents\University\MyBaseline Project\Code\0.001\Finance Handler\Finance Handler\obj\Release\Finance Handler.pdb
