@@ -19,6 +19,11 @@ public class SnakeBody {
 	 * The {@link Rectangle} that denotes this {@link SnakeBody}.
 	 */
 	private Rectangle part;
+	
+	/**
+	 * The position of this {@link SnakeBody} in the {@link Snake}.
+	 */
+	private final int position;
 
 	/**
 	 * Constructs a new {@link SnakeBody}.
@@ -26,8 +31,9 @@ public class SnakeBody {
 	 * @param x Integer initial x coordinate.
 	 * @param y Integer initial y coordinate.
 	 */
-	public SnakeBody(Direction directionToNext, int x, int y) {
+	public SnakeBody(Direction directionToNext, int x, int y, int position) {
 
+		this.position = position;
 		this.directionToNext = directionToNext;
 
 		part = new Rectangle();
@@ -52,6 +58,10 @@ public class SnakeBody {
 		part.setLocation(x, y);
 	}
 
+	public int getPosition(){
+		return position;
+	}
+	
 	/**
 	 * Retrieves the {@link Direction} from this to the next {@link SnakeBody}.
 	 * @return {@link Direction}
@@ -59,7 +69,7 @@ public class SnakeBody {
 	public Direction getDirectionToNext() {
 		return directionToNext;
 	}
-
+	
 	/**
 	 * Retrieves the visual {@link Rectangle} assigned to this {@link SnakeBody}.
 	 * @return {@link Rectangle}

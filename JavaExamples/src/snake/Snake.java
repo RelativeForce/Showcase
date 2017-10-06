@@ -31,17 +31,17 @@ public class Snake {
 
 		// Add head in top left corner of the arena.
 		body.add(new SnakeBody(direction, Constants.ARENA_X + 10 + Constants.WALL_WIDTH,
-				Constants.ARENA_Y + 10 + Constants.WALL_WIDTH));
+				Constants.ARENA_Y + 10 + Constants.WALL_WIDTH,0));
 
 	}
 
 	/**
 	 * Retrieves the first {@link SnakeBody} of the {@link Snake}.
 	 * 
-	 * @return
+	 * @return {@link SnakeBody}
 	 */
-	public Rectangle getHead() {
-		return body.get(0).getPart();
+	public SnakeBody getHead() {
+		return body.get(0);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class Snake {
 			break;
 		}
 
-		body.add(new SnakeBody(previousSnakeBody.getDirectionToNext(), x, y));
+		body.add(new SnakeBody(previousSnakeBody.getDirectionToNext(), x, y, body.size()));
 
 	}
 
@@ -178,17 +178,17 @@ public class Snake {
 	public boolean isEatingItself() {
 
 		// Holds the head of the snake.
-		Rectangle head = getHead();
+		SnakeBody head = getHead();
 
 		// Iterate through the entire snake.
 		for (SnakeBody currentPart : body) {
 
 			// If the current body part is not the head of the snake.
-			if (currentPart.getPart() != head) {
+			if (currentPart.getPosition() != 0) {
 
 				// If the coordinates of the head and the current body part are
 				// the same they have collided.
-				if (currentPart.getPart().x == head.x && currentPart.getPart().y == head.y) {
+				if (currentPart.getPart().x == head.getPart().x && currentPart.getPart().y == head.getPart().y) {
 					return true;
 				}
 			}

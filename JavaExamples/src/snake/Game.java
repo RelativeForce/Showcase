@@ -97,19 +97,19 @@ public class Game extends Applet implements KeyListener {
 		acceptInput = true;
 
 		// Get the current position of the snake head.
-		int x = snake.getHead().x;
-		int y = snake.getHead().y;
-
-		// If the snake has eaten the food. Add one to score and increase the
-		// snakes length.
-		if (arena.eatedFood(x, y)) {
-			snake.addPart();
-			score++;
-		}
+		int x = snake.getHead().getPart().x;
+		int y = snake.getHead().getPart().y;
 
 		// If the snake has not collided with its own body or the arena.
 		if (!snake.isEatingItself() && !arena.hasCollided(x, y, direction)) {
-
+			
+			// If the snake has eaten the food. Add one to score and increase
+			// the snakes length.
+			if (arena.eatedFood(x, y)) {
+				snake.addPart();
+				score++;
+			}
+			
 			// Move Snake
 			snake.moveSnake(direction);
 		} else {
@@ -207,25 +207,15 @@ public class Game extends Applet implements KeyListener {
 				// paused. Process the direction the user pressed.
 				else if (acceptInput && !pause) {
 
-					switch (event.getKeyCode()) {
-					case KeyEvent.VK_RIGHT:
-						direction = Direction.RIGHT;
-						break;
-					case KeyEvent.VK_LEFT:
-						direction = Direction.LEFT;
-						break;
-					case KeyEvent.VK_DOWN:
-						direction = Direction.DOWN;
-						break;
-					case KeyEvent.VK_UP:
-						direction = Direction.UP;
-						break;
-					case KeyEvent.VK_ESCAPE:
+					// If the direction the event specifies is not opposite to
+					// the snakes current direction.
+					if (direction.getOpposite() != Direction.getDirection(event)
+							&& Direction.getDirection(event) != null) {
+						direction = Direction.getDirection(event);
+					} else if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
 						System.out.println("GAME OVER");
 						run = !run;
-						break;
 					}
-
 					acceptInput = false;
 				}
 			}
