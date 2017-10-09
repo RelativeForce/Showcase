@@ -107,6 +107,44 @@ namespace Finance_Handler.Data_Storage
         }
 
         /// <summary>
+        /// Using a specified SQL query with an agregate function retrieves an value from a specified table in the Database.
+        /// </summary>
+        /// <param name="sql">A query including an aggregate function.</param>
+        /// <param name="variableName">
+        /// The name given to the result of the operation specified in the other parameter.
+        /// </param>
+        /// <returns></returns>
+        public int executeQuery(string sql, string variableName)
+        {
+
+            // Holds the value that will be obtained from the operation.
+            int value = 0;
+
+            // The sql comand and results reader.
+            SQLiteCommand command = null;
+            SQLiteDataReader reader = null;
+
+            try
+            {
+
+                command = new SQLiteCommand(sql, DBConnection);
+                reader = command.ExecuteReader();
+
+                // Read the results and take the most recent value.
+                while (reader.Read()) value = Int32.Parse(reader[variableName].ToString());
+
+            }
+            catch (Exception ex)
+            {
+                // Display an error message.
+                Console.WriteLine("SQL query ERROR:\n" + sql);
+                Console.WriteLine(ex.Message);
+            }
+
+            return value;
+        }
+
+        /// <summary>
         /// Reyrieves the results from an SQL query from the database as a <see cref="Table"/>.
         /// </summary>
         /// <param name="SQL">The query that will be performed on the database.</param>

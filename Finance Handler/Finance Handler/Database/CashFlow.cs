@@ -79,7 +79,7 @@ namespace Finance_Handler.Database
                 + "-" + "01";
 
             SQLHandler.getInstance().executeQuery("SELECT * FROM CashFlow"
-                + " WHERE " + DATE_COLOUMN 
+                + " WHERE " + DATE_COLOUMN
                 + " BETWEEN '" + startMonth + "' AND '" + endMonth + "'"
                 + " ORDER BY " + DATE_COLOUMN + " DESC;", out this.rawTable);
 
@@ -193,42 +193,13 @@ namespace Finance_Handler.Database
         /// <returns><code>int</code> transaction id</returns>
         public int getAvalaibleTransactionID()
         {
+            // Holds the name of the variable from the aggregate function.
+            string MAX_COLOUMN = "Maximum";
 
-            // Holds the first avalible id strating from zero.
-            int id = 0;
-
-            // Holds all the rows currently in the CashFlow table.
-            Row[] rows = getRows();
-
-            // Iterates from the number of rows in the table.
-            for (int index = 0; index < rows.Length; index++)
-            {
-                // Holds whether the current id number is in the table or not.
-                bool found = false;
-
-                // For ever row in the table.
-                foreach (Row row in rows)
-                {
-
-                    // If the current id number is the same as the id for the current 
-                    // row then the id is present in the table. The id should be incremented 
-                    // and the search for that id should be ended.
-                    if (row.getValue(TRANSACTION_ID_COLOUMN).Equals("" + id))
-                    {
-                        id++;
-                        found = true;
-                        break;
-                    }
-
-                }
-
-                // If the current id was not found in the current rows then 
-                // it is available for use. There for the loop can be broken
-                if (!found)
-                {
-                    break;
-                }
-            }
+            // Hold the highest transaction id in the CashFlow table plus one.
+            int id = SQLHandler.getInstance().executeQuery("SELECT MAX(" + CashFlow.TRANSACTION_ID_COLOUMN
+                    + ") AS " + MAX_COLOUMN
+                    + " FROM " + CashFlow.TABLE_NAME + ";", MAX_COLOUMN) + 1;
 
             return id;
 
@@ -457,6 +428,41 @@ namespace Finance_Handler.Database
                     break;
                 }
             }
+        }
+
+        private class Max : Table
+        {
+
+            private const string MAX_COLOUMN = "Maximum";
+
+            public Max()
+                : base(new string[]{
+            MAX_COLOUMN
+            })
+            {
+                loadFromSource(DateTime.Today);
+            }
+
+            public override void create() { 
+            
+            }
+
+            public override void loadFromSource(DateTime startDate)
+            {
+
+                SQLHandler.getInstance().executeQuery("SELECT MAX(" + CashFlow.TRANSACTION_ID_COLOUMN 
+                    + ") AS " + MAX_COLOUMN 
+                    + " FROM " + CashFlow.TABLE_NAME + ";", out this.rawTable);
+
+            }
+
+            public int getMax() {
+
+                Row row = this.rawTable[0];
+
+                return Int32.Parse(row.getValue(MAX_COLOUMN));
+            }
+
         }
     }
 }

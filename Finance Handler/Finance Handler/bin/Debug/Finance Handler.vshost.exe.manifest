@@ -252,14 +252,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Finance Handler.exe" size="89048">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Finance Handler.exe" size="89560">
       <assemblyIdentity name="Finance Handler" version="0.8.8.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KPGqMBopya7rR/TEzZFIdcK+z8teFdbA749eREszB7o=</dsig:DigestValue>
+        <dsig:DigestValue>e6pN/JfVPUlrBvzKCovPzNVatPt8nQb8RzUEpgQN69Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
