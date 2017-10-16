@@ -60,8 +60,11 @@ namespace Finance_Handler.Database
         /// <summary>
         /// Loads the CashFlow table from the database file.
         /// </summary>
+        /// <param name="startDate">The start of the month that is to be loaded.</param>
         public override void loadFromSource(DateTime startDate)
         {
+
+            //TODO: Add the abillity for the repeat transactions to be added to the table even if the orignial transaction occured before the current month.
 
             DateTime endDate = startDate.AddMonths(1);
 
@@ -443,20 +446,22 @@ namespace Finance_Handler.Database
                 loadFromSource(DateTime.Today);
             }
 
-            public override void create() { 
-            
+            public override void create()
+            {
+
             }
 
             public override void loadFromSource(DateTime startDate)
             {
 
-                SQLHandler.getInstance().executeQuery("SELECT MAX(" + CashFlow.TRANSACTION_ID_COLOUMN 
-                    + ") AS " + MAX_COLOUMN 
+                SQLHandler.getInstance().executeQuery("SELECT MAX(" + CashFlow.TRANSACTION_ID_COLOUMN
+                    + ") AS " + MAX_COLOUMN
                     + " FROM " + CashFlow.TABLE_NAME + ";", out this.rawTable);
 
             }
 
-            public int getMax() {
+            public int getMax()
+            {
 
                 Row row = this.rawTable[0];
 

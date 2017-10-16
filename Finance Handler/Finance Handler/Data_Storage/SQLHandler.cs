@@ -296,5 +296,13 @@ namespace Finance_Handler.Data_Storage
             if (DBConnection != null) DBConnection.Close();
             Console.Out.WriteLine("Connection Treminated");
         }
+
+        /// <summary>
+        /// Updates the database file to be in line with the most recent schema.
+        /// </summary>
+        public void updateDB()
+        {
+            // TODO create a method to update a database file to the new schema.
+        }
     }
 }

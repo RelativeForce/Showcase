@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Database\Budget.cs" />
     <Compile Include="Database\CashFlow.cs" />
+    <Compile Include="Database\Repeat.cs" />
     <Compile Include="Data_Storage\Row.cs" />
     <Compile Include="Windows\AboutWindow.cs">
       <SubType>Form</SubType>

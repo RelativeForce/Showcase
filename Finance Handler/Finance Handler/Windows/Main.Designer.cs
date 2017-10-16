@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.errorOutput = new System.Windows.Forms.Label();
             this.transactionsBox = new System.Windows.Forms.GroupBox();
@@ -60,6 +60,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightButton = new System.Windows.Forms.Button();
             this.leftButton = new System.Windows.Forms.Button();
+            this.updateDBSchemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthPlot)).BeginInit();
             this.FileOptionMenu.SuspendLayout();
@@ -275,16 +276,16 @@
             // 
             // monthPlot
             // 
-            chartArea2.Name = "ChartArea1";
-            this.monthPlot.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.monthPlot.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.monthPlot.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.monthPlot.Legends.Add(legend1);
             this.monthPlot.Location = new System.Drawing.Point(12, 42);
             this.monthPlot.Name = "monthPlot";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.monthPlot.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.monthPlot.Series.Add(series1);
             this.monthPlot.Size = new System.Drawing.Size(441, 207);
             this.monthPlot.TabIndex = 18;
             this.monthPlot.Text = "chart1";
@@ -324,7 +325,8 @@
             this.FileOptionsBox.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importButton,
             this.createButton,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.updateDBSchemaToolStripMenuItem});
             this.FileOptionsBox.Name = "FileOptionsBox";
             this.FileOptionsBox.Size = new System.Drawing.Size(37, 20);
             this.FileOptionsBox.Text = "File";
@@ -332,21 +334,21 @@
             // importButton
             // 
             this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(110, 22);
+            this.importButton.Size = new System.Drawing.Size(157, 22);
             this.importButton.Text = "Import";
             this.importButton.Click += new System.EventHandler(this.importDBFile);
             // 
             // createButton
             // 
             this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(110, 22);
+            this.createButton.Size = new System.Drawing.Size(157, 22);
             this.createButton.Text = "Create";
             this.createButton.Click += new System.EventHandler(this.createDBFile);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.openAboutWindow);
             // 
@@ -381,6 +383,13 @@
             this.leftButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.leftButton.UseVisualStyleBackColor = true;
             this.leftButton.Click += new System.EventHandler(this.previousMonth);
+            // 
+            // updateDBSchemaToolStripMenuItem
+            // 
+            this.updateDBSchemaToolStripMenuItem.Name = "updateDBSchemaToolStripMenuItem";
+            this.updateDBSchemaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.updateDBSchemaToolStripMenuItem.Text = "Update Schema";
+            this.updateDBSchemaToolStripMenuItem.Click += new System.EventHandler(this.updateDatabaseFile);
             // 
             // Main_Form
             // 
@@ -444,6 +453,7 @@
         private System.Windows.Forms.RichTextBox description3;
         private System.Windows.Forms.RichTextBox date3;
         private System.Windows.Forms.VScrollBar scrollBar;
+        private System.Windows.Forms.ToolStripMenuItem updateDBSchemaToolStripMenuItem;
     }
 }
 

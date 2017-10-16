@@ -321,10 +321,14 @@ namespace Finance_Handler.Windows
         private void nextMonth(object sender, EventArgs e)
         {
             highlightedMonth = highlightedMonth.AddMonths(1);
-            changeMonth();
+            loadMonth();
         }
 
-        private void changeMonth() { 
+        /// <summary>
+        /// Load the month that is currently specifed by the <see cref="highlightedMonth"/>.
+        /// </summary>
+        private void loadMonth()
+        {
 
             // Import new month
             DatabaseHandler.getInstance().load(highlightedMonth);
@@ -369,10 +373,16 @@ namespace Finance_Handler.Windows
 
         }
 
+        /// <summary>
+        /// Changes the currently selected month ot the previous month.
+        /// </summary>
+        /// <param name="sender">Unused.</param>
+        /// <param name="e">Unused.</param>
         private void previousMonth(object sender, EventArgs e)
         {
+            // Deincrement the month.
             highlightedMonth = highlightedMonth.AddMonths(-1);
-            changeMonth(); 
+            loadMonth();
         }
 
         /// <summary>
@@ -527,7 +537,7 @@ namespace Finance_Handler.Windows
 
                 }
 
-            };
+            }
         }
 
         /// <summary>
@@ -617,6 +627,58 @@ namespace Finance_Handler.Windows
         {
             AboutWindow aboutWindow = new AboutWindow();
             aboutWindow.Show();
+        }
+
+        /// <summary>
+        /// Creates a open file dialog. The user will then select a new database file, 
+        /// it is updateed to the current schema and it is opened. 
+        /// </summary>
+        /// <param name="sender">Unused.</param>
+        /// <param name="e">Unused.</param>
+        private void updateDatabaseFile(object sender, EventArgs e)
+        {
+
+            // Holds a new Open file dialog
+            System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
+
+            // Assign the attributes of the dialog.
+            dialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); ;
+            dialog.Multiselect = false;
+            dialog.Title = "Import Database File";
+            dialog.DefaultExt = "sqlite";
+            dialog.Filter = "sqlite files (*.sqlite)|*.sqlite";
+            dialog.CheckFileExists = true;
+            dialog.CheckPathExists = true;
+
+            // If the user clicks ok in the dialog.
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                // IF the file specified in the open file €dialog is 
+                // NOT the same as the current database.
+                if (!DatabaseHandler.FILE_PATH.Equals(dialog.FileName))
+                {
+                    // Clear the internal storage.
+                    DatabaseHandler.getInstance().clear();
+
+                    // Assign the specified file as the new database file.
+                    DatabaseHandler.FILE_PATH = dialog.FileName;
+
+                    // Connect to the new database.
+                    SQL.connect();
+
+                    // Update the database file.
+                    SQL.updateDB();
+
+                    // Load the new database into internal storage.
+                    DatabaseHandler.getInstance().load(highlightedMonth);
+
+                    // Enable the view controls.
+                    enableOperationControls();
+
+                }
+
+            };
+
         }
 
     }
