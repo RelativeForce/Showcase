@@ -145,18 +145,19 @@ public class EuclidsAlgorithm {
 			// Retrieve and output the new phase.
 			outputPhase(phaseList.get(phaseIndex));
 
-			// Increment the counter.
-			phaseIndex++;
-
+			
 			// Assign b the value of the current phase's a.
 			b = phaseList.get(phaseIndex).a;
 
 			// Assign a the value of the current phase's r.
 			a = phaseList.get(phaseIndex).r;
+			
+			// Increment the counter.
+			phaseIndex++;
 
 		} while (r != 0);
 
-		System.out.println("HCF: " + phaseList.get(phaseIndex).a);
+		System.out.println("HCF: " + phaseList.get(phaseIndex - 1).a);
 	}
 
 	/**
