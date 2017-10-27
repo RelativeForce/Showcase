@@ -91,7 +91,7 @@ namespace Finance_Handler.Windows.User_Display
 
             double monthlyAllowance = Budget.getInstance().getBudget((month.Month < 10 ? "0" + month.Month : "" + month.Month) + "" + month.Year);
 
-            getValues(monthlyAllowance.Equals(Double.NaN) ? 200 : monthlyAllowance, month, out xValues, out yValues);
+            double currentTotal = getValues(monthlyAllowance.Equals(Double.NaN) ? 200 : monthlyAllowance, month, out xValues, out yValues);
 
             // A series to be added to the graph
             Series series = new Series(monthString);
@@ -110,7 +110,7 @@ namespace Finance_Handler.Windows.User_Display
             yAxis.MajorGrid.Enabled = false;
 
             // Set Title details
-            Title title = new Title(monthString);
+            Title title = new Title(monthString + " - Total: " + currentTotal);
             title.Alignment = System.Drawing.ContentAlignment.TopCenter;
 
             // A chart area that shows the axis labels.
@@ -146,7 +146,7 @@ namespace Finance_Handler.Windows.User_Display
         /// <param name="now">The current date time.</param>
         /// <param name="xValues">This return variable contains all x values to be displayed on the graph.</param>
         /// <param name="yValues">This return variable contains all y values to be displayed on the graph.</param>
-        private void getValues(double monthlyAllowance, DateTime now, out int[] xValues, out double[] yValues)
+        private double getValues(double monthlyAllowance, DateTime now, out int[] xValues, out double[] yValues)
         {
             // Store the values in lists as the length on a list is flexible.
             List<int> xValuesList = new List<int>();
@@ -184,6 +184,7 @@ namespace Finance_Handler.Windows.User_Display
             xValues = xValuesList.ToArray<int>();
             yValues = yValuesList.ToArray<double>();
 
+            return monthlyAllowance;
         }
 
     }
