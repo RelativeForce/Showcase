@@ -59,7 +59,8 @@ namespace Finance_Handler.Windows.User_Display
         /// <param name="month">
         /// The month of transactions to be displayed on the graph.
         /// </param>
-        private void checkInvoke(DateTime month) {
+        private void checkInvoke(DateTime month)
+        {
 
             // Check if the chart requires invoking. This causes the action to be thread safe.
             if (chart.InvokeRequired)
@@ -133,8 +134,8 @@ namespace Finance_Handler.Windows.User_Display
             chart.Series[0].IsVisibleInLegend = false;
             chart.Titles.Clear();
             chart.Titles.Add(title);
-            
-            
+
+
 
         }
 
@@ -167,7 +168,7 @@ namespace Finance_Handler.Windows.User_Display
             for (index = 1; index < rows.Length + 1; index++)
             {
                 Row row = rows[rows.Length - index];
-                
+
 
                 // Add the current transaction value to the monthly allowance.
                 monthlyAllowance += Double.Parse(row.getValue(CashFlow.AMOUNT_COLOUMN));
@@ -177,7 +178,7 @@ namespace Finance_Handler.Windows.User_Display
                 yValuesList.Add(monthlyAllowance);
                 xValuesList.Add(index);
 
-                
+
             }
 
             // Convert the list of x and y values into an array.
